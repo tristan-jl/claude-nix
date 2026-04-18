@@ -31,7 +31,7 @@ Local skills live in `skills/<name>/SKILL.md` and become slash commands (e.g. `s
 Current local skills: `debug`, `review`, `nixcheck`, `add-nvim-plugin`
 
 External skill sources are declared as `flake = false` inputs and added to `pluginDirs` in `module.nix`:
-- [`superpowers`](https://github.com/obra/superpowers) — planning, TDD, debugging workflows
+
 - `claude-code-plugins` — `frontend-design`
 
 ### Adding a skill
@@ -44,10 +44,3 @@ External skill sources are declared as `flake = false` inputs and added to `plug
    ---
    ```
 2. `nix build && nix run`
-
-## Updating inputs
-
-```bash
-nix flake update          # all inputs
-nix flake update superpowers  # single input
-```

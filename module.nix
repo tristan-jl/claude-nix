@@ -94,6 +94,5 @@ in
       fileset = ./skills;
     })
     "${inputs.claude-code-plugins}/plugins/frontend-design"
-    inputs.superpowers
   ];
 }

@@ -15,10 +15,6 @@
       url = "github:anthropics/claude-code";
       flake = false;
     };
-    superpowers = {
-      url = "github:obra/superpowers";
-      flake = false;
-    };
   };
 
   outputs =

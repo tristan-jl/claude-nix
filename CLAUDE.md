@@ -78,6 +78,7 @@ pluginDirs = [ ... inputs.my-skills ];
 ```
 
 To use only specific skills from a source rather than all of them:
+
 ```nix
 pluginDirs = [ ... "${inputs.my-skills}/skills/debugging" ];
 ```
@@ -92,16 +93,6 @@ Configured in `module.nix` under `settings.hooks.PostToolUse`, triggered on `Edi
 - **`.rs` files** — runs `cargo check --message-format=short` (first 20 lines)
 
 `jq` is declared in `extraPackages` so hooks can use it from PATH without a hardcoded store path.
-
-### How to Update Inputs
-
-```bash
-# Update all inputs
-nix flake update
-
-# Update a single input
-nix flake update superpowers
-```
 
 ### How to Add an MCP Server
 
