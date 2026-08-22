@@ -15,6 +15,10 @@
       url = "github:anthropics/claude-code";
       flake = false;
     };
+    ponytail = {
+      url = "github:DietrichGebert/ponytail";
+      flake = false;
+    };
   };
 
   outputs =
@@ -51,6 +55,10 @@
           wrappers.pkgs = pkgs;
 
           packages.default = self'.packages.claude;
+
+          checks = import ./checks.nix { inherit pkgs; };
+
+          formatter = pkgs.nixfmt;
 
           devShells.default = pkgs.mkShell {
             name = "claude";
