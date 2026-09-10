@@ -101,7 +101,7 @@ first: if a plugin entry's `source` is `"./"`, point `pluginDirs` at the repo ro
 names a subdirectory, point at that subdirectory instead (as `frontend-design` does).
 
 `ponytail` is wired this way. Its hooks shell out to `node`, which is why `pkgs.nodejs` is
-in `extraPackages` — without it, its `SessionStart`, `SubagentStart` and `UserPromptSubmit`
+in `runtimePkgs` — without it, its `SessionStart`, `SubagentStart` and `UserPromptSubmit`
 hooks fail silently on a system with no ambient node. Its state is written to `~/.claude`,
 not the plugin root, so a read-only store path is fine.
 

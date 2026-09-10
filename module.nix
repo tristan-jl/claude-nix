@@ -20,7 +20,7 @@ in
   # jq is used by the statusLine script; hooks and MCP servers pin their own
   # dependencies rather than relying on this.
   # nodejs is required by the ponytail plugin, whose hooks shell out to `node`.
-  extraPackages = [
+  runtimePkgs = [
     pkgs.jq
     pkgs.nodejs
   ];
