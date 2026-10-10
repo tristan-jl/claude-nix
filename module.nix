@@ -29,6 +29,12 @@ in
 
   strictMcpConfig = true; # only declared servers load
 
+  # The one exception: a `.mcp.json` at the git root is passed in too, so a repo
+  # can add servers for itself without them loading in every session.
+  runShell = [
+    ''root=$(${pkgs.git}/bin/git rev-parse --show-toplevel 2>/dev/null) && [ -f "$root/.mcp.json" ] && set -- --mcp-config "$root/.mcp.json" "$@"''
+  ];
+
   agents = {
     nix-fixer = {
       description = ''
@@ -57,6 +63,10 @@ in
   };
 
   settings = {
+    permissions.deny = [
+      "Bash(git commit:*)"
+      "Bash(git rebase:*)"
+    ];
     permissions.allow = [
       "Bash(nix build:*)"
       "Bash(nix develop:*)"

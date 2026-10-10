@@ -140,6 +140,8 @@ Add a test alongside any new hook; hooks are otherwise unobservable until they m
 
 Configured in `mcp.nix`, wired up via `mcpConfig` in `module.nix`. `strictMcpConfig` is
 `true`, so *only* these servers load — nothing from user or project scope.
+The one exception: the wrapper passes `<git root>/.mcp.json` via `--mcp-config` when it
+exists, so a repo can declare its own servers (`${VAR}` in it expands from the environment).
 
 - `nixos` — `mcp-nixos`. Grounded nixpkgs package and NixOS/home-manager option lookup.
   Prefer it over guessing option names.
